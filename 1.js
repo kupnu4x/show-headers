@@ -5,10 +5,9 @@ const requestHandler = (request, response) => {
 
     var ret = request.headers;
     ret.url = request.url;
+    ret.remote_addr = request.socket.remoteAddress
     response.end(JSON.stringify(ret, null, 2))
-
-    //console.log(request.url)
-    //console.log(JSON.stringify(request.headers,null,2))
+    //console.log(request)
 }
 const server = http.createServer(requestHandler)
 server.listen(port, (err) => {
