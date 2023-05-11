@@ -1,5 +1,4 @@
 // содежимое index.js
-const os = require("os")
 const http = require('http')
 const port = 3000
 const requestHandler = (request, response) => {
@@ -7,7 +6,7 @@ const requestHandler = (request, response) => {
         headers: request.headers,
         url: request.url,
         remote_addr: request.socket.remoteAddress,
-        hostname: os.hostname()
+        node_name: process.env.NODE_NAME
     }, null, 2))
     //console.log(request)
 }
