@@ -1,11 +1,13 @@
 // содежимое index.js
+const os = require("os")
 const http = require('http')
 const port = 3000
 const requestHandler = (request, response) => {
     response.end(JSON.stringify({
         headers: request.headers,
         url: request.url,
-        remote_addr: request.socket.remoteAddress
+        remote_addr: request.socket.remoteAddress,
+        hostname: os.hostname()
     }, null, 2))
     //console.log(request)
 }
